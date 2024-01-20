@@ -42,7 +42,6 @@
 Thumbs.db
 
 # Archivos y directorios generados por el usuario
-**/assets/images/
 **/lib/constants/api_keys.dart
 
 *.env
