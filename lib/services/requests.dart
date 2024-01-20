@@ -18,7 +18,8 @@ const SCOPE =
 // Get the environment variables
 String clientId = '26cd2b5bfc8a431eb6b343e28ced0b6f';
 String redirectUri =
-    'https://combined-playlist-maker.vercel.app'; //'http://localhost:5000/'
+    'http://localhost:5000/'; //'https://combined-playlist-maker.vercel.app';
+//'https://miguelgarglez.github.io'; //'http://localhost:5000/';
 
 /// Generates a random string of the specified [length].
 ///
@@ -478,7 +479,8 @@ Future<MyResponse> obtainAllUsersRecommendations(
   Map<String, List> recommendations = {};
 
   for (var user in usersBox.values) {
-    user.updateToken(); // actualizo el token del usuario
+    await user
+        .updateToken(); // update access token, in case it might be expired
     var userId = user.id;
 
     // obtengo los items top del usuario

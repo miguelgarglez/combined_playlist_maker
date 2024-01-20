@@ -74,7 +74,7 @@ class User {
         refreshToken: '');
   }
 
-  MyResponse updateToken() {
+  Future<MyResponse> updateToken() async {
     req.refreshToken(id).then((tokenResponse) {
       if (tokenResponse.content.isNotEmpty) {
         var usersBox = Hive.box<User>('users');

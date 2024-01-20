@@ -88,7 +88,7 @@ class MyHomePage extends StatelessWidget {
     } else {
       children = notLoggedIn;
     }
-    // comprobar si el codigo se ha devuelto al autorizar el acceso de spotify
+    // check if the code has been returned when authorizing Spotify access
     if (authSuccess(Uri.base) == true) {
       if (hiveGetUsers().isEmpty) {
         var authBox = Hive.box('auth');
