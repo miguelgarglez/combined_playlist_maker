@@ -9,7 +9,6 @@ import 'package:combined_playlist_maker/services/recommendator.dart';
 import 'package:combined_playlist_maker/services/statistics.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -17,8 +16,9 @@ import 'package:url_launcher/url_launcher.dart';
 const SCOPE =
     'user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private ugc-image-upload';
 // Get the environment variables
-String clientId = dotenv.get('CLIENT_ID');
-String redirectUri = dotenv.get('REDIRECT_URI');
+String clientId = '26cd2b5bfc8a431eb6b343e28ced0b6f';
+String redirectUri =
+    'https://combined-playlist-maker.vercel.app'; //'http://localhost:5000/'
 
 /// Generates a random string of the specified [length].
 ///

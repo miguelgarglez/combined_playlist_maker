@@ -3,7 +3,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/src/routes.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   // Hive initialization
@@ -14,8 +13,6 @@ void main() async {
   await Hive.openBox('urlCode');
   await Hive.openBox('firstTime');
   await Hive.openBox<User>('users');
-  // Load .env file
-  await dotenv.load(fileName: ".env");
 
   usePathUrlStrategy();
   runApp(const MyApp());
