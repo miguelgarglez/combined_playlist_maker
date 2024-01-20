@@ -1,11 +1,11 @@
 {
-    "name": "combined_playlist_maker",
-    "short_name": "combined_playlist_maker",
+    "name": "Combined Playlist Maker",
+    "short_name": "CPM",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Flutter Web Application that uses Spotify API to generates playlist for 2+ users.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
