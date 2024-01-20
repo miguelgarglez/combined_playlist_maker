@@ -40,35 +40,28 @@ class UserDetail extends StatelessWidget {
       children: [
         // Columna izquierda con la imagen
         Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50.0),
-            shape: BoxShape.rectangle,
-            boxShadow: [
-              BoxShadow(
-                blurStyle: BlurStyle.normal,
-                color: Theme.of(context).colorScheme.primary,
-                blurRadius: 5,
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(50.0),
-            child: (user.imageUrl == '')
-                ? FadeInImage.assetNetwork(
-                    placeholder: 'assets/images/unknown_cover.png',
-                    image: user.imageUrl,
-                    imageErrorBuilder: (context, error, stackTrace) {
-                      return const Image(
-                          image: AssetImage('assets/images/unknown_cover.png'));
-                    },
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  )
-                : Image.network(
-                    user.imageUrl,
-                    width: 250,
-                    height: 250,
-                  ),
+          child: Hero(
+            tag: user.id,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50.0),
+              child: (user.imageUrl == '')
+                  ? FadeInImage.assetNetwork(
+                      placeholder: 'assets/images/unknown_cover.png',
+                      image: user.imageUrl,
+                      imageErrorBuilder: (context, error, stackTrace) {
+                        return const Image(
+                            image:
+                                AssetImage('assets/images/unknown_cover.png'));
+                      },
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.network(
+                      user.imageUrl,
+                      width: 250,
+                      height: 250,
+                    ),
+            ),
           ),
         ),
         const SizedBox(width: 40),
@@ -89,35 +82,28 @@ class UserDetail extends StatelessWidget {
       children: [
         // Columna superior con la imagen
         Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50.0),
-            shape: BoxShape.rectangle,
-            boxShadow: [
-              BoxShadow(
-                blurStyle: BlurStyle.normal,
-                color: Theme.of(context).colorScheme.primary,
-                blurRadius: 5,
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(50.0),
-            child: (user.imageUrl == '')
-                ? FadeInImage.assetNetwork(
-                    placeholder: 'assets/images/unknown_cover.png',
-                    image: user.imageUrl,
-                    imageErrorBuilder: (context, error, stackTrace) {
-                      return const Image(
-                          image: AssetImage('assets/images/unknown_cover.png'));
-                    },
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  )
-                : Image.network(
-                    user.imageUrl,
-                    width: 250,
-                    height: 250,
-                  ),
+          child: Hero(
+            tag: user.id,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50.0),
+              child: (user.imageUrl == '')
+                  ? FadeInImage.assetNetwork(
+                      placeholder: 'assets/images/unknown_cover.png',
+                      image: user.imageUrl,
+                      imageErrorBuilder: (context, error, stackTrace) {
+                        return const Image(
+                            image:
+                                AssetImage('assets/images/unknown_cover.png'));
+                      },
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.network(
+                      user.imageUrl,
+                      width: 250,
+                      height: 250,
+                    ),
+            ),
           ),
         ),
         const SizedBox(height: 16),

@@ -137,20 +137,23 @@ Or tap on your profile card and explore your most listened tracks and artists!""
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     // Imagen del usuario
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: AspectRatio(
-                        aspectRatio: 52 / 40,
-                        child: FadeInImage.assetNetwork(
-                          placeholder: 'assets/images/unknown_cover.png',
-                          image: widget.users![index].imageUrl,
-                          imageErrorBuilder: (context, error, stackTrace) {
-                            return const Image(
-                                image: AssetImage(
-                                    'assets/images/unknown_cover.png'));
-                          },
-                          width: double.infinity,
-                          fit: BoxFit.cover,
+                    Hero(
+                      tag: widget.users![index].id,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: AspectRatio(
+                          aspectRatio: 52 / 40,
+                          child: FadeInImage.assetNetwork(
+                            placeholder: 'assets/images/unknown_cover.png',
+                            image: widget.users![index].imageUrl,
+                            imageErrorBuilder: (context, error, stackTrace) {
+                              return const Image(
+                                  image: AssetImage(
+                                      'assets/images/unknown_cover.png'));
+                            },
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

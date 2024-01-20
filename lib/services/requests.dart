@@ -17,8 +17,7 @@ const SCOPE =
     'user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private ugc-image-upload';
 // Get the environment variables
 String clientId = '26cd2b5bfc8a431eb6b343e28ced0b6f';
-String redirectUri =
-    'http://localhost:5000/'; //'https://combined-playlist-maker.vercel.app';
+String redirectUri = 'https://combined-playlist-maker.vercel.app';
 //'https://miguelgarglez.github.io'; //'http://localhost:5000/';
 
 /// Generates a random string of the specified [length].
