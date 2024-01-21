@@ -21,9 +21,12 @@ int handleResponseUI(MyResponse? r, String? userId, BuildContext context) {
         'OK');
     return ReturnCodes.TOO_MANY_REQUESTS;
   } else if (r?.statusCode == 401) {
+    if (r!.auxContent.isNotEmpty) {
+      userId = r.auxContent.values.first;
+    }
     showReauthDialog(
         context,
-        'An error (${r?.statusCode}) refreshing token for $userId occured with Spotify API. Reauthenticate and try again.',
+        'An error (${r.statusCode}) refreshing token for $userId occured with Spotify API. Reauthenticate with $userId and try again.',
         'Authenticate again');
     return ReturnCodes.TOKEN_ERROR;
   } else {

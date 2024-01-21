@@ -17,7 +17,8 @@ const SCOPE =
     'user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private ugc-image-upload';
 // Get the environment variables
 String clientId = '26cd2b5bfc8a431eb6b343e28ced0b6f';
-String redirectUri = 'https://combined-playlist-maker.vercel.app';
+String redirectUri =
+    'http://localhost:5000/'; //'https://combined-playlist-maker.vercel.app';
 //'https://miguelgarglez.github.io'; //'http://localhost:5000/';
 
 /// Generates a random string of the specified [length].
@@ -488,6 +489,7 @@ Future<MyResponse> obtainAllUsersRecommendations(
     if (topTracks.statusCode != 200) {
       ret.content = {'error': 'error retrieving top tracks'};
       ret.statusCode = topTracks.statusCode;
+      ret.auxContent = {'aux': userId};
       return ret;
     }
     List? trackSeeds = topTracks.content.map((track) => track.id).toList();
@@ -497,6 +499,7 @@ Future<MyResponse> obtainAllUsersRecommendations(
     if (topArtists.statusCode != 200) {
       ret.content = {'error': 'error retrieving top artists'};
       ret.statusCode = topArtists.statusCode;
+      ret.auxContent = {'aux': userId};
       return ret;
     }
     List? artistSeeds = topArtists.content.map((artist) => artist.id).toList();
@@ -547,6 +550,7 @@ Future<MyResponse> generateCombinedPlaylist(
   if (recommendations.statusCode != 200) {
     ret.statusCode = recommendations.statusCode;
     ret.content = recommendations.content;
+    ret.auxContent = recommendations.auxContent;
     return ret;
   }
   // indicates the number of seeds for each type of seed

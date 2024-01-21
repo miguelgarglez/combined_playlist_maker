@@ -38,7 +38,7 @@ class _GeneratePlaylistState extends State<GeneratePlaylist> {
                   style: Theme.of(context).textTheme.bodyLarge),
             ),
             Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: DurationPicker(
                   baseUnit: BaseUnit.minute,
                   duration: _duration,
@@ -50,10 +50,43 @@ class _GeneratePlaylistState extends State<GeneratePlaylist> {
                   snapToMins: 5.0,
                 )),
             Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Choose an aggregation strategy',
+                        style: Theme.of(context).textTheme.bodyLarge),
+                    IconButton(
+                      icon: const Icon(Icons.info),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Info'),
+                              content: const Text(
+                                  """The aggregation strategy determines how the songs will be combined to create the playlist.
+Choose 'Compare strategies A and B' to see the playlist generated with each strategy and see which one you like the most."""),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: Text('OK'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ],
+                )),
+            Padding(
               padding: const EdgeInsets.only(
                   left: 60, right: 60, top: 15, bottom: 15),
               child: DropdownButtonFormField(
-                hint: const Text('Select an aggregation strategy'),
+                hint: const Text('Strategy'),
                 value: _aggregationStrategy,
                 items: {
                   //'average': 'Average',
@@ -135,19 +168,19 @@ class _GeneratePlaylistState extends State<GeneratePlaylist> {
                     });
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content:
                             Text('The duration must be at least 5 minutes.'),
                       ),
                     );
                   }
                 },
-                child: Text('Generate playlist'),
+                child: const Text('Generate playlist'),
               ),
             ),
             if (_loading)
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: CircularProgressIndicator(),
               ),
           ],

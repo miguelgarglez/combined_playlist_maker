@@ -152,10 +152,10 @@ class PlaylistDisplay extends StatelessWidget {
           titlePadding: const EdgeInsets.only(top: 35, left: 35, right: 35),
           contentPadding:
               const EdgeInsets.only(top: 20, left: 35, right: 35, bottom: 35),
-          title: const Text("Sorry :("),
+          title: const Text("Info"),
           content: const Text(
-              """It was not possible to generate two options for you to choose.
-Hopefully you will like the one we generated for you!"""),
+              """The same playlist was generated for both strategies A and B.
+That is why only one playlist is displayed"""),
           actions: <Widget>[
             TextButton(
               child: const Text("OK"),
